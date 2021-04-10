@@ -1,0 +1,45 @@
+{
+"inbound": {
+    "protocol": "vmess",
+    "listen": "127.0.0.1",
+ "port": xxxxx,//输入本地监听端口号
+ "settings": {"clients": [
+         {
+       "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"//输入uuid
+          }
+]},
+ "streamSettings": {
+ "network": "ws",
+ "wsSettings": {"path": "/xxx"}//输入路径
+    }
+},
+
+"outbounds": [
+  {
+    "tag":"IPv4_out",
+    "protocol": "freedom"
+  },
+  {
+    "tag":"IPv6_out",
+    "protocol": "freedom",
+    "settings": {
+      "domainStrategy": "UseIPv6"
+    }
+  }
+],
+"routing": {
+  "rules": [
+    {
+      "type": "field",
+      "outboundTag": "IPv6_out",
+      "domain": ["geosite:netflix","nflxvideo.net","nflxext.com","nflxso.net"]
+    },
+    {
+      "type": "field",
+      "outboundTag": "IPv4_out",
+      "network": "udp,tcp"
+    }
+  ]
+}
+}
+
