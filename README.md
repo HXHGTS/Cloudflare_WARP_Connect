@@ -7,7 +7,7 @@
 ```
 curl https://raw.githubusercontent.com/HXHGTS/Add-Netflix_Support/main/netflix_support.sh | sh
 ```
-2.执行完成请在/etc/wireguard/wgcf-profile.conf文件中删除`0.0.0.0/0`一行
+2.执行完成请在/etc/wireguard/wgcf-profile.conf文件中删除`AllowedIPs = 0.0.0.0/0`一行
 
 3.在/usr/local/etc/xray文件夹或/usr/local/etc/v2ray中找到配置文件config.json并按仓库中模板格式修改
 
