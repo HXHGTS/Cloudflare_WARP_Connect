@@ -11,7 +11,7 @@ cd /etc/wireguard && chmod +x wgcf_2.2.3_linux_amd64
 echo 正在注册WARP账号. . .
 echo yes | ./wgcf_2.2.3_linux_amd64 register
 ./wgcf_2.2.3_linux_amd64 generate
-echo ##请删除Address = 172.16.0.2/32
+echo ##请删除Address = 172.16.0.2/32 >> /etc/wireguard/wgcf-profile.conf
 echo ##请删除AllowedIPs = 0.0.0.0/0 >> /etc/wireguard/wgcf-profile.conf
 echo ##请修改engage.cloudflareclient.com为162.159.192.1 >> /etc/wireguard/wgcf-profile.conf
 vi wgcf-profile.conf
