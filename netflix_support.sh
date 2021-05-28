@@ -14,5 +14,6 @@ echo yes | ./wgcf_2.2.3_linux_amd64 register
 echo 请删除Address = 172.16.0.2/32 >> /etc/wireguard/wgcf-profile.conf
 echo 请删除AllowedIPs = 0.0.0.0/0 >> /etc/wireguard/wgcf-profile.conf
 echo 请修改engage.cloudflareclient.com为162.159.192.1 >> /etc/wireguard/wgcf-profile.conf
+systemctl enable wg-quick@wgcf-profile
 echo 运行成功，请修改配置文件后再运行！
 exit 0
