@@ -13,15 +13,34 @@
  "wsSettings": {"path": "/xxx"}//输入路径
     }
 },
-
-"outbounds": [
+ "outbounds": [
     {
-        "sendThrough": "::",
-        "protocol": "freedom",
-        "settings": {
-            "domainStrategy": "UseIP"
-        }
+      "tag":"A",
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "tag":"AAAA",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIPv6"
+      }
     }
-]
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "AAAA",
+        "domain": ["geosite:netflix"]
+      },
+      {
+        "type": "field",
+        "outboundTag": "A",
+        "network": "udp,tcp"
+      }
+    ]
+  }
+}
 }
 
