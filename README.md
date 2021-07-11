@@ -5,7 +5,7 @@
 
 1.脚本运行:
 
-`CentOS7/8:
+`CentOS7/8:`
 ```
 curl https://raw.githubusercontent.com/HXHGTS/Add-Netflix_Support/main/netflix_support.sh | sh
 ```
