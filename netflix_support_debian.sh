@@ -1,7 +1,5 @@
 #!/bin/sh
 echo 正在安装wireguard. . .
-echo 13.35.162.73 download.copr.fedorainfracloud.org > /etc/hosts
-echo 38.145.60.24 dl.fedoraproject.org >> /etc/hosts
 apt install dnsutils -y
 apt-get install wireguard -y
 wget https://github.com/ViRb3/wgcf/releases/download/v2.2.3/wgcf_2.2.3_linux_amd64 -O /etc/wireguard/wgcf_2.2.3_linux_amd64
