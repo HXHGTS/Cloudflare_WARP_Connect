@@ -1,3 +1,5 @@
+//xray替换位置: /usr/local/etc/xray
+//v2ray替换位置: /usr/local/etc/v2ray
 {
 "inbound": {
     "protocol": "vmess",
