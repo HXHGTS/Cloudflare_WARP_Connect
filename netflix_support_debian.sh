@@ -11,4 +11,5 @@ cat /etc/wireguard/wgcf-profile.conf | grep -v "engage.cloudflareclient.com" | g
 echo Endpoint = 162.159.192.1:2408 >> /etc/wireguard/wgcf.conf
 systemctl enable wg-quick@wgcf
 systemctl start wg-quick@wgcf
+echo 运行成功，请修改xray/v2ray配置文件！
 exit 0
