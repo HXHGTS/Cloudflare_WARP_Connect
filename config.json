@@ -13,7 +13,7 @@
  "wsSettings": {"path": "/xxx"}//输入路径
     }
 },
- "outbounds": [
+"outbounds": [
     {
       "tag":"A",
       "protocol": "freedom",
@@ -27,7 +27,7 @@
       }
     }
   ],
-  "routing": {
+"routing": {
     "rules": [
       {
         "type": "field",
