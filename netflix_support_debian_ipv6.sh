@@ -1,7 +1,5 @@
 #!/bin/sh
 echo 正在安装wireguard. . .
-echo nameserver 2001:67c:2b0::4 > /etc/resolv.conf
-echo nameserver 2001:67c:2b0::6 >> /etc/resolv.conf
 apt install dnsutils -y
 apt-get install wireguard -y
 wget https://github.com/ViRb3/wgcf/releases/download/v2.2.3/wgcf_2.2.3_linux_amd64 -O /etc/wireguard/wgcf_2.2.3_linux_amd64
