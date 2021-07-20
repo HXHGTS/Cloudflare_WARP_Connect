@@ -1,7 +1,5 @@
 #!/bin/sh
 echo 正在安装wireguard. . .
-echo nameserver 2001:67c:2b0::4 > /etc/resolv.conf
-echo nameserver 2001:67c:2b0::6 >> /etc/resolv.conf
 echo 2600:9000:2135:f400:4:bbc1:1840:93a1 download.copr.fedorainfracloud.org > /etc/hosts
 echo 2001:67c:2b0:db32:0:1:2691:3c17 dl.fedoraproject.org >> /etc/hosts
 yum install net-tools.x86_64 -y
