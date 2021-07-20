@@ -2,6 +2,7 @@
 echo 正在安装wireguard. . .
 echo nameserver 2001:67c:2b0::4 > /etc/resolv.conf
 echo nameserver 2001:67c:2b0::6 >> /etc/resolv.conf
+echo 2a04:4e42:12::644 deb.debian.org > /etc/hosts
 echo "deb http://deb.debian.org/debian $(lsb_release -sc)-backports main" | sudo tee /etc/apt/sources.list.d/backports.list
 apt update
 apt install net-tools iproute2 openresolv dnsutils -y
