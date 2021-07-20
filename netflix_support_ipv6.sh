@@ -1,7 +1,5 @@
 #!/bin/sh
 echo 正在安装wireguard. . .
-echo 2600:9000:2135:f400:4:bbc1:1840:93a1 download.copr.fedorainfracloud.org > /etc/hosts
-echo 2001:67c:2b0:db32:0:1:2691:3c17 dl.fedoraproject.org >> /etc/hosts
 yum install net-tools.x86_64 -y
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
 curl -o /etc/yum.repos.d/jdoss-wireguard-epel-7.repo https://raw.githubusercontent.com/HXHGTS/Add-Netflix_Support/main/jdoss-wireguard-epel-7.repo
