@@ -7,6 +7,7 @@ cd /etc/apt/sources.list.d && wget https://raw.githubusercontent.com/HXHGTS/Grea
 apt update --allow-unauthenticated update
 apt install net-tools iproute2 openresolv dnsutils -y
 apt install wireguard-tools --no-install-recommends
+mkdir /etc/wireguard
 curl -sSL https://raw.githubusercontent.com/P3TERX/script/master/wireguard-go.sh | sh
 cd /etc/wireguard && wget https://github.com/ViRb3/wgcf/releases/download/v2.2.3/wgcf_2.2.3_linux_amd64 -O /etc/wireguard/wgcf_2.2.3_linux_amd64
 chmod +x wgcf_2.2.3_linux_amd64
