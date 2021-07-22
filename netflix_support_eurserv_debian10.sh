@@ -8,8 +8,8 @@ apt update --allow-unauthenticated update
 apt install net-tools iproute2 openresolv dnsutils -y
 apt install wireguard-tools --no-install-recommends
 curl -sSL https://raw.githubusercontent.com/P3TERX/script/master/wireguard-go.sh | sh
-wget https://github.com/ViRb3/wgcf/releases/download/v2.2.3/wgcf_2.2.3_linux_amd64 -O /etc/wireguard/wgcf_2.2.3_linux_amd64
-cd /etc/wireguard && chmod +x wgcf_2.2.3_linux_amd64
+cd /etc/wireguard && wget https://github.com/ViRb3/wgcf/releases/download/v2.2.3/wgcf_2.2.3_linux_amd64 -O /etc/wireguard/wgcf_2.2.3_linux_amd64
+chmod +x wgcf_2.2.3_linux_amd64
 echo 正在注册WARP账号. . .
 echo yes | ./wgcf_2.2.3_linux_amd64 register
 ./wgcf_2.2.3_linux_amd64 generate
