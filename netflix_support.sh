@@ -17,5 +17,4 @@ systemctl enable wg-quick@wgcf
 systemctl start wg-quick@wgcf
 echo 运行成功，请修改xray/v2ray配置文件！
 exit 0
-##PostUp = ip rule add from [上面查出的IP] lookup main
-##PostDown = ip rule delete from [上面查出的IP] lookup main
+
