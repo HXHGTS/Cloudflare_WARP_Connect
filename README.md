@@ -7,6 +7,6 @@
 双栈实现命令:
 
 ```
-PostUp = ip -4 rule add from [IP] lookup main; ip -6 rule add from [IPV6] lookup main;
-PostDown = ip -4 rule delete from [IP] lookup main; ip -6 rule add from [IPV6] lookup main;
+PostUp = ip -4 rule add from [IP] lookup main; ip -6 rule add from [IPV6] lookup main
+PostDown = ip -4 rule delete from [IP] lookup main; ip -6 rule add from [IPV6] lookup main
 ```
