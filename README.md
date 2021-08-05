@@ -1,6 +1,8 @@
 # Add-Netflix_Support
 
-为非原生ip的vps添加奈飞支持(需要配合v2ray/xray出口规则修改)
+警告⚠:目前此方法已不可用于解锁Netflix!!!
+
+为非原生ip的vps添加Netflix支持(需要配合v2ray/xray出口规则修改)
 
 使用脚本安装xray/v2ray后，可用此脚本添加Netflix支持，原生ip请忽略！
 
