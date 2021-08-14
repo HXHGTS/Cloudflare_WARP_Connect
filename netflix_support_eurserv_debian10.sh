@@ -2,9 +2,8 @@
 echo 正在安装wireguard. . .
 echo nameserver 2001:67c:2b0::4 > /etc/resolv.conf
 echo nameserver 2001:67c:2b0::6 >> /etc/resolv.conf
-echo 2a04:4e42:12::644 deb.debian.org > /etc/hosts
-cd /etc/apt/sources.list.d && wget https://raw.githubusercontent.com/HXHGTS/GreatDNS/master/sources.list -O backports.list
-apt update --allow-unauthenticated update
+echo "deb http://deb.debian.org/debian/ unstable main" > /etc/apt/sources.list.d/unstable.list
+printf 'Package: *\nPin: release a=unstable\nPin-Priority: 150\n' > /etc/apt/preferences.d/limit-unstable
 apt install net-tools iproute2 openresolv dnsutils -y
 apt install wireguard-tools --no-install-recommends
 mkdir /etc/wireguard
