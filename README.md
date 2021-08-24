@@ -21,4 +21,8 @@ warp双栈实现命令(主机存在ipv4+ipv6):
 PostUp = ip -4 rule add from [IP] lookup main; ip -6 rule add from [IPV6] lookup main
 PostDown = ip -4 rule delete from [IP] lookup main; ip -6 rule add from [IPV6] lookup main
 ```
+warp关闭:
+`systemctl stop wg-quick@wgcf && systemctl disable wg-quick@wgcf`
 
+warp启动:
+`systemctl start wg-quick@wgcf && systemctl enable wg-quick@wgcf`
