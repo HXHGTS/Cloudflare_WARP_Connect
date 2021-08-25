@@ -35,12 +35,12 @@
     "rules": [
       {
         "type": "field",
-        "outboundTag": "AAAA",
+        "outboundTag": "A",
         "domain": ["geosite:netflix"]
       },
       {
         "type": "field",
-        "outboundTag": "A",
+        "outboundTag": "AAAA",
         "network": "udp,tcp"
       }
     ]
