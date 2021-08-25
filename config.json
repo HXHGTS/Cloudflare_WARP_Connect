@@ -19,7 +19,9 @@
     {
       "tag":"A",
       "protocol": "freedom",
-      "settings": {}
+      "settings": {
+        "domainStrategy": "UseIPv4"
+      }
     },
     {
       "tag":"AAAA",
