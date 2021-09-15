@@ -1,8 +1,6 @@
 # Cloudflare_WARP_Connect
 
-目前此方法解锁Netflix需要强制IPV4出口，请结合v2ray/xray的config.json文件模板修改分流!!!
-
-需要配合v2ray/xray出口规则修改，原生ip请忽略！
+目前此方法解锁Netflix需要强制IPV4出口，需要配合v2ray/xray出口规则修改，原生ip请忽略！
 
 以下配置添加在`/etc/wireguard/wgcf.conf`中
 
