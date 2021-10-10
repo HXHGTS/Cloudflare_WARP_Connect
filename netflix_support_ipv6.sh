@@ -11,5 +11,5 @@ echo yes | ./wgcf_2.2.3_linux_amd64 register
 ./wgcf_2.2.3_linux_amd64 generate
 cat /etc/wireguard/wgcf-profile.conf | grep -v "engage.cloudflareclient.com" | grep -v "/128" | grep -v "::/0" > /etc/wireguard/wgcf.conf
 echo Endpoint = [2606:4700:d0::a29f:c001]:2408 >> /etc/wireguard/wgcf.conf
-安装成功，请修改xray/v2ray配置文件后手动运行！
+echo 安装成功，请修改xray/v2ray配置文件后手动运行！
 exit 0
