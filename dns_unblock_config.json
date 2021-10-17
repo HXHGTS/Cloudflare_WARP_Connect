@@ -1,0 +1,59 @@
+//此配置文件仅适用于提供dns解锁的额情况，使用warp解锁请不要使用此配置文件！
+{
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "port": 2053,
+            "protocol": "trojan",
+            "settings": {
+                "clients": [
+                    {
+                        "password":""//输入密码
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "tls",
+                "tlsSettings": {
+                    "alpn": [
+                        "h2",
+                        "http/1.1"
+                    ],
+                    "certificates": [
+                        {
+                            "certificateFile": "/usr/local/etc/xray/certificate.crt",
+                            "keyFile": "/usr/local/etc/xray/private.key"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {"domainStrategy": "UseIP"}
+    }
+  ],
+  "routing": {
+    "rules": []
+  },
+  "dns": {
+    "servers": [
+      "172.31.0.2",
+      {
+        "address": "45.77.4.224",
+        "port": 53,
+        "domains": ["geosite:netflix"]
+      },
+      {
+        "address": "74.207.252.225",
+        "port": 53,
+        "domains": ["geosite:netflix"]
+      }
+]
+}
+}
