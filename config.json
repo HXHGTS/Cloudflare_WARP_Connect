@@ -1,20 +1,36 @@
-//xray替换位置: /usr/local/etc/xray
-//v2ray替换位置: /usr/local/etc/v2ray
 {
-"inbound": {
-    "protocol": "vmess",
-    "listen": "127.0.0.1",
- "port": xxxxx,//输入本地监听端口号
- "settings": {"clients": [
-         {
-       "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"//输入uuid
-          }
-]},
- "streamSettings": {
- "network": "ws",
- "wsSettings": {"path": "/xxx"}//输入路径
-    }
-},
+    "log": {
+        "loglevel": "warning"
+    },
+    "inbounds": [
+        {
+            "port": 2053,
+            "protocol": "trojan",
+            "settings": {
+                "clients": [
+                    {
+                        "password":""//输入密码
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "tls",
+                "tlsSettings": {
+                    "alpn": [
+                        "h2",
+                        "http/1.1"
+                    ],
+                    "certificates": [
+                        {
+                            "certificateFile": "/usr/local/etc/xray/certificate.crt",
+                            "keyFile": "/usr/local/etc/xray/private.key"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
 "outbounds": [
     {
       "tag":"A",
@@ -36,7 +52,7 @@
       {
         "type": "field",
         "outboundTag": "A",
-        "domain": ["geosite:netflix","nflxvideo.net","nflxext.com","nflxso.net","fast.com"]
+        "domain": ["geosite:netflix"]
       },
       {
         "type": "field",
@@ -47,4 +63,3 @@
   }
 }
 }
-
