@@ -49,12 +49,12 @@
     "rules": [
       {
         "type": "field",
-        "outboundTag": "A",
+        "outboundTag": "AAAA",
         "domain": ["geosite:netflix"]//特定规则务必前置
       },
       {
         "type": "field",
-        "outboundTag": "AAAA",
+        "outboundTag": "A",
         "network": "udp,tcp"
       }
     ]
