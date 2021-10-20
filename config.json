@@ -35,9 +35,7 @@
     {
       "tag":"A",
       "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "UseIPv4"
-      }
+      "settings": {}
     },
     {
       "tag":"AAAA",
