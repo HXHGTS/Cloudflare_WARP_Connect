@@ -52,7 +52,7 @@
       {
         "type": "field",
         "outboundTag": "A",
-        "domain": ["geosite:netflix"]
+        "domain": ["geosite:netflix"]//特定规则务必前置
       },
       {
         "type": "field",
