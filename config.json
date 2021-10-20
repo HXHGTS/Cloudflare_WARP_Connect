@@ -35,26 +35,26 @@
     {
       "tag":"A",
       "protocol": "freedom",
-      "settings": {}
+      "settings": {
+        "domainStrategy": "UseIPv4"
+      }
     },
     {
       "tag":"AAAA",
       "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "UseIPv6"
-      }
+      "settings": {}
     }
   ],
 "routing": {
     "rules": [
       {
         "type": "field",
-        "outboundTag": "AAAA",
+        "outboundTag": "A",
         "domain": ["geosite:netflix"]//特定规则务必前置
       },
       {
         "type": "field",
-        "outboundTag": "A",
+        "outboundTag": "AAAA",
         "network": "udp,tcp"
       }
     ]
