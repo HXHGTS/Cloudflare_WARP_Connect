@@ -12,7 +12,7 @@ PostDown = ip -4 rule delete from [IP] lookup main
 warp双栈实现命令(主机仅存在ipv6):
 ```
 PostUp = ip -6 rule add from [IPV6] lookup main
-PostDown = ip -6 rule add from [IPV6] lookup main
+PostDown = ip -6 rule delete from [IPV6] lookup main
 ```
 warp双栈实现命令(主机存在ipv4+ipv6):
 ```
