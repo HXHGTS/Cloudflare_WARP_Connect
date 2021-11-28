@@ -23,5 +23,10 @@ echo [Peer] >> /etc/wireguard/wgcf.conf
 echo AllowedIPs = 0.0.0.0/0 >> /etc/wireguard/wgcf.conf
 cat /etc/wireguard/wgcf-profile.conf | grep "PublicKey" >> /etc/wireguard/wgcf.conf
 echo Endpoint = 162.159.192.1:2408 >> /etc/wireguard/wgcf.conf
+systemctl start wg-quick@wgcf && systemctl enable wg-quick@wgcf
 echo 安装成功，请修改xray/v2ray配置文件后手动运行！
+echo 运行状态:
+echo -------------------------
+wg
+echo -------------------------
 exit 0
