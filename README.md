@@ -1,8 +1,6 @@
 # Cloudflare_WARP_Connect
 
-警告⚠:目前此方法已不可用于解锁Netflix!!!
-
-目前此方法解锁Netflix需要强制IPV4出口并刷出特定出口ip(美区除外)，配合v2ray/xray出口规则修改，原生ip请忽略！
+警告⚠:目前此方法解锁Netflix需要强制IPV4出口并刷出特定出口ip(美区除外)，配合v2ray/xray出口规则修改，原生ip请忽略！
 
 流媒体检测脚本:
 ```
