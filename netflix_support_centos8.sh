@@ -1,7 +1,5 @@
 #!/bin/sh
 echo 正在安装wireguard. . .
-echo 13.35.162.73 download.copr.fedorainfracloud.org > /etc/hosts
-echo 38.145.60.24 dl.fedoraproject.org >> /etc/hosts
 yum install net-tools.x86_64 -y
 yum install epel-release -y
 yum config-manager --set-enabled PowerTools
