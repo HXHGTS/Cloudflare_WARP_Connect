@@ -39,6 +39,9 @@
     {
       "tag":"WARP_OUT",
       "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIPv4"
+      },
       "sendThrough": "172.16.0.2"
     }
   ],
