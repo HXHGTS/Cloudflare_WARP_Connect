@@ -11,6 +11,11 @@
                     {
                         "password":""//输入密码
                     }
+                ],
+                "fallbacks": [
+                    {
+                        "dest": 80
+                    }
                 ]
             },
             "streamSettings": {
@@ -18,7 +23,6 @@
                 "security": "tls",
                 "tlsSettings": {
                     "alpn": [
-                        "h2",
                         "http/1.1"
                     ],
                     "certificates": [
