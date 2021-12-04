@@ -35,11 +35,16 @@ bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Conne
 3.应该可以正常使用了
 
 warp关闭:
-`systemctl stop wg-quick@wgcf && systemctl disable wg-quick@wgcf && systemctl status wg-quick@wgcf`
+```
+systemctl stop wg-quick@wgcf && systemctl disable wg-quick@wgcf && systemctl status wg-quick@wgcf
+```
 
 warp启动:
-`systemctl start wg-quick@wgcf && systemctl enable wg-quick@wgcf && systemctl status wg-quick@wgcf`
+```
+systemctl start wg-quick@wgcf && systemctl enable wg-quick@wgcf && systemctl status wg-quick@wgcf
+```
 
 warp重启/切换出口ip:
-`systemctl restart wg-quick@wgcf && echo 4 | bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/check.sh)`
-
+```
+systemctl restart wg-quick@wgcf && echo 4 | bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/check.sh)
+```
