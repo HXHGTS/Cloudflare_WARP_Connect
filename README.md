@@ -4,7 +4,7 @@
 
 流媒体检测脚本:
 ```
-bash <(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)
+bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/check.sh)
 ```
 
 1.脚本运行:
@@ -41,5 +41,5 @@ warp启动:
 `systemctl start wg-quick@wgcf && systemctl enable wg-quick@wgcf && systemctl status wg-quick@wgcf`
 
 warp重启/切换出口ip:
-`systemctl restart wg-quick@wgcf && systemctl status wg-quick@wgcf`
+`systemctl restart wg-quick@wgcf && echo 4 | bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/check.sh)`
 
