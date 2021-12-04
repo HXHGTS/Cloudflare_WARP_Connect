@@ -28,9 +28,9 @@ cat /etc/wireguard/wgcf-profile.conf | grep "PublicKey" >> /etc/wireguard/wgcf.c
 echo Endpoint = 162.159.192.1:2408 >> /etc/wireguard/wgcf.conf
 systemctl start wg-quick@wgcf && systemctl enable wg-quick@wgcf
 echo 安装成功，请修改xray/v2ray配置文件后手动运行！
-echo 运行状态:
+echo 出口ip:
 echo -------------------------
-wg
+curl ifconfig.me/ip --interface 172.16.0.2
 echo -------------------------
 exit 0
 
