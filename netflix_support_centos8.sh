@@ -10,7 +10,7 @@ cd /etc/wireguard && chmod +x wgcf_2.2.8_linux_amd64
 echo 正在注册WARP账号. . .
 echo yes | ./wgcf_2.2.8_linux_amd64 register
 ./wgcf_2.2.8_linux_amd64 generate
-echo Endpoint = [Interface] > /etc/wireguard/wgcf.conf
+echo [Interface] > /etc/wireguard/wgcf.conf
 cat /etc/wireguard/wgcf-profile.conf | grep "PrivateKey" >> /etc/wireguard/wgcf.conf
 echo Address = 172.16.0.2/32 >> /etc/wireguard/wgcf.conf
 echo DNS = 1.1.1.1,1.0.0.1 >> /etc/wireguard/wgcf.conf
