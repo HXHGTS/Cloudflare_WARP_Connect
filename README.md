@@ -2,7 +2,7 @@
 
 警告⚠:目前此方法解锁Netflix需要强制IPV4出口并刷出特定出口ip(美区除外)，配合v2ray/xray出口规则修改，原生ip请忽略！
 
-流媒体检测脚本(基于[lmc999流媒体检测脚本](https://github.com/lmc999/RegionRestrictionCheck) 修改而来，适用于本项目出口ip检测):
+流媒体检测脚本(基于[lmc999流媒体检测脚本](https://github.com/lmc999/RegionRestrictionCheck)修改而来，适用于本项目出口ip检测):
 ```
 bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/check.sh)
 ```
