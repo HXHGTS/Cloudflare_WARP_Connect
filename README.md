@@ -4,7 +4,7 @@
 
 流媒体检测脚本(基于[lmc999流媒体检测脚本](https://github.com/lmc999/RegionRestrictionCheck)修改而来，适用于本项目出口ip检测):
 ```
-echo 0 | bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/check.sh)
+echo 0 | bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/check.sh) -M 4
 ```
 
 1.脚本运行:
@@ -46,5 +46,5 @@ systemctl start wg-quick@wgcf && systemctl enable wg-quick@wgcf && systemctl sta
 
 warp重启/切换出口ip:
 ```
-systemctl restart wg-quick@wgcf && echo 0 | bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/check.sh)
+systemctl restart wg-quick@wgcf && echo 0 | bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/check.sh) -M 4
 ```
