@@ -66,8 +66,8 @@
   },
   "dns": {
     "servers": [
-      "https+local://1.1.1.1:443/dns-query",
-      "https+local://1.0.0.1:443/dns-query"
+      "1.1.1.1",
+      "1.0.0.1"
 ]
 }
 }
