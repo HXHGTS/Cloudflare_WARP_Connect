@@ -1137,7 +1137,7 @@ function MediaUnlockTest_YouTube_Premium() {
 
 function MediaUnlockTest_YouTube_CDN() {
     echo -n -e " YouTube CDN:\t\t\t\t->\c";
-	local tmpresult=$(curl $useNIC -${1} ${ssll} -sS --interface 172.16.0.2 --max-time 10 https://redirector.googlevideo.com/report_mapping 2>&1)
+	local tmpresult=$(curl --interface 172.16.0.2 $useNIC -${1} ${ssll} -sS --max-time 10 https://redirector.googlevideo.com/report_mapping 2>&1)
     
     if [[ "$tmpresult" == "curl"* ]];then
         echo -n -e "\r YouTube Region:\t\t\t${Font_Red}Check Failed (Network Connection)${Font_Suffix}\n"
@@ -1151,7 +1151,7 @@ function MediaUnlockTest_YouTube_CDN() {
 		echo -n -e "\r YouTube CDN:\t\t\t\t${Font_Yellow}Associated with $CDN_ISP${Font_Suffix}\n"
 		return;
 	elif [ -n "$iata" ];then
-		curl $useNIC -s --interface 172.16.0.2 --max-time 10 "https://www.iata.org/AirportCodesSearch/Search?currentBlock=314384&currentPage=12572&airport.search=${iata}" > ~/iata.txt
+		curl --interface 172.16.0.2 $useNIC -s --max-time 10 "https://www.iata.org/AirportCodesSearch/Search?currentBlock=314384&currentPage=12572&airport.search=${iata}" > ~/iata.txt
 		local line=$(cat ~/iata.txt | grep -n "<td>"$iata | awk '{print $1}' | cut -f1 -d":")
 		local nline=$(expr $line - 2)
 		local location=$(cat ~/iata.txt | awk NR==${nline} | sed 's/.*<td>//' | cut -f1 -d"<")
