@@ -2949,9 +2949,7 @@ function CheckV6() {
 	fi	
 }
 
-function Goodbye(){
-}
-
+function Goodbye(){}
 clear;
 
 function ScriptTitle(){
