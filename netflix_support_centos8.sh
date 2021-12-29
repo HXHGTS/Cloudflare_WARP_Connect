@@ -3,7 +3,7 @@ echo 正在安装wireguard. . .
 yum install net-tools.x86_64 -y
 yum install epel-release -y
 yum config-manager --set-enabled PowerTools
-yum copr enable jdoss/wireguard
+yum copr enable jdoss/wireguard -y
 yum install wireguard-dkms wireguard-tools -y
 wget https://github.com/ViRb3/wgcf/releases/download/v2.2.8/wgcf_2.2.8_linux_amd64 -O /etc/wireguard/wgcf_2.2.8_linux_amd64
 cd /etc/wireguard && chmod +x wgcf_2.2.8_linux_amd64
