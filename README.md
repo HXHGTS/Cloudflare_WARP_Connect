@@ -9,9 +9,14 @@ echo 0 | bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_W
 
 1.脚本运行:
 
-`CentOS7/8(vps仅提供ipv4网络):`
+`CentOS7(vps仅提供ipv4网络):`
 ```
 bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/netflix_support.sh)
+```
+
+`CentOS8(vps仅提供ipv4网络):`
+```
+bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/netflix_support_centos8.sh)
 ```
 
 `Debian/Ubuntu(vps仅提供ipv4网络):`
