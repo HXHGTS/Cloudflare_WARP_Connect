@@ -2949,7 +2949,6 @@ function CheckV6() {
 	fi	
 }
 
-function Goodbye(){}
 clear;
 
 function ScriptTitle(){
@@ -3007,7 +3006,7 @@ function RunScript(){
 				Global_UnlockTest 6
 				TW_UnlockTest 6
 			fi	
-			Goodbye
+			
 			
 		elif [[ "$num" -eq 2 ]]; then
 			clear
@@ -3022,7 +3021,7 @@ function RunScript(){
 				Global_UnlockTest 6
 				HK_UnlockTest 6
 			fi	
-			Goodbye
+			
 			
 		elif [[ "$num" -eq 3 ]]; then
 			clear
@@ -3037,7 +3036,7 @@ function RunScript(){
 				Global_UnlockTest 6
 				JP_UnlockTest 6
 			fi	
-			Goodbye
+			
 			
 		elif [[ "$num" -eq 4 ]]; then
 			clear
@@ -3052,7 +3051,7 @@ function RunScript(){
 				Global_UnlockTest 6
 				NA_UnlockTest 6
 			fi	
-			Goodbye
+			
 			
 		elif [[ "$num" -eq 5 ]]; then
 			clear
@@ -3067,7 +3066,7 @@ function RunScript(){
 				Global_UnlockTest 6
 				SA_UnlockTest 6
 			fi	
-			Goodbye
+			
 			
 		elif [[ "$num" -eq 6 ]]; then
 			clear
@@ -3082,7 +3081,7 @@ function RunScript(){
 				Global_UnlockTest 6
 				EU_UnlockTest 6
 			fi	
-			Goodbye
+			
 			
 		elif [[ "$num" -eq 7 ]]; then
 			clear
@@ -3097,7 +3096,7 @@ function RunScript(){
 				Global_UnlockTest 6
 				OA_UnlockTest 6
 			fi	
-			Goodbye	
+				
 			
 		elif [[ "$num" -eq 99 ]]; then
 			clear
@@ -3110,7 +3109,7 @@ function RunScript(){
 			if 	[[ "$isv6" -eq 1 ]];then
 				Sport_UnlockTest 6
 			fi	
-			Goodbye	
+				
 		
 		elif [[ "$num" -eq 0 ]]; then
 			clear
@@ -3123,7 +3122,7 @@ function RunScript(){
 			if 	[[ "$isv6" -eq 1 ]];then
 				Global_UnlockTest 6
 			fi	
-			Goodbye
+			
 			
 		else
 			echo -e "${Font_Red}请重新执行脚本并输入正确号码${Font_Suffix}"
@@ -3155,7 +3154,7 @@ function RunScript(){
 			EU_UnlockTest 6	
 			OA_UnlockTest 6
 		fi
-		Goodbye	
+			
 	fi
 }
 
