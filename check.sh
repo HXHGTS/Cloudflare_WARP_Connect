@@ -2885,7 +2885,7 @@ function Start(){
 		echo -e "${Font_SkyBlue}Input Number【6】：【 Multination + Europe 】${Font_Suffix}"
 		echo -e "${Font_SkyBlue}Input Number【7】：【 Multination + Oceania 】${Font_Suffix}"
 		echo -e "${Font_SkyBlue}Input Number【0】：【 Multination Only 】${Font_Suffix}" 
-		echo -e "${Font_SkyBlue}Input Number【99】：【 Sport Platforms 】${Font_Suffix}"
+		echo -e "${Font_SkyBlue}Input Number【99】：【 Netflix Only 】${Font_Suffix}"
 		read -p "Please Input the Correct Number or Press ENTER:" num
 	else
 		echo -e "${Font_Blue}请选择检测项目，直接按回车将进行全区域检测${Font_Suffix}"
@@ -2897,7 +2897,7 @@ function Start(){
 		echo -e "${Font_SkyBlue}输入数字【6】：【 跨国平台+欧洲平台 】检测${Font_Suffix}"
 		echo -e "${Font_SkyBlue}输入数字【7】：【跨国平台+大洋洲平台】检测${Font_Suffix}"
 		echo -e "${Font_SkyBlue}输入数字【0】：【   只进行跨国平台  】检测${Font_Suffix}"
-		echo -e "${Font_SkyBlue}输入数字【99】 【   体育直播平台    】检测${Font_Suffix}"
+		echo -e "${Font_SkyBlue}输入数字【99】 【   奈飞测试    】检测${Font_Suffix}"
 		read -p "请输入正确数字或直接按回车:" num
 	fi	
 }
@@ -3015,11 +3015,11 @@ function RunScript(){
 			ScriptTitle
 			CheckV4
 			if [[ "$isv4" -eq 1 ]];then
-				Sport_UnlockTest 4
+				MediaUnlockTest_Netflix 4
 			fi
 			CheckV6
 			if 	[[ "$isv6" -eq 1 ]];then
-				Sport_UnlockTest 6
+				MediaUnlockTest_Netflix 6
 			fi	
 				
 		
