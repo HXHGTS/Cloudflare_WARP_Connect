@@ -1135,37 +1135,6 @@ function MediaUnlockTest_YouTube_Premium() {
     
 }
 
-function MediaUnlockTest_YouTube_CDN() {
-    echo -n -e " YouTube CDN:\t\t\t\t->\c";
-	local tmpresult=$(curl --interface 172.16.0.2 $useNIC -${1} ${ssll} -sS --max-time 10 https://redirector.googlevideo.com/report_mapping 2>&1)
-    
-    if [[ "$tmpresult" == "curl"* ]];then
-        echo -n -e "\r YouTube Region:\t\t\t${Font_Red}Check Failed (Network Connection)${Font_Suffix}\n"
-        return;
-    fi
-	
-	iata=$(echo $tmpresult | grep router | cut -f2 -d'"' | cut -f2 -d"." | sed 's/.\{2\}$//' | tr [:lower:] [:upper:])
-	checkfailed=$(echo $tmpresult | grep "=>")
-	if [ -z "$iata" ] && [ -n "$checkfailed" ];then
-		CDN_ISP=$(echo $checkfailed | awk '{print $3}' | cut -f1 -d"-" | tr [:lower:] [:upper:])
-		echo -n -e "\r YouTube CDN:\t\t\t\t${Font_Yellow}Associated with $CDN_ISP${Font_Suffix}\n"
-		return;
-	elif [ -n "$iata" ];then
-		curl --interface 172.16.0.2 $useNIC -s --max-time 10 "https://www.iata.org/AirportCodesSearch/Search?currentBlock=314384&currentPage=12572&airport.search=${iata}" > ~/iata.txt
-		local line=$(cat ~/iata.txt | grep -n "<td>"$iata | awk '{print $1}' | cut -f1 -d":")
-		local nline=$(expr $line - 2)
-		local location=$(cat ~/iata.txt | awk NR==${nline} | sed 's/.*<td>//' | cut -f1 -d"<")
-		echo -n -e "\r YouTube CDN:\t\t\t\t${Font_Green}$location${Font_Suffix}\n"
-		rm ~/iata.txt
-		return;
-	else
-		echo -n -e "\r YouTube CDN:\t\t\t\t${Font_Red}Undetectable${Font_Suffix}\n"
-		rm ~/iata.txt
-		return;
-	fi
-	
-}
-
 function MediaUnlockTest_BritBox() {
     echo -n -e " BritBox:\t\t\t\t->\c";
     local tmpresult=$(curl $useNIC -${1} ${ssll} -sS --interface 172.16.0.2 -o /dev/null -L --max-time 10 -w '%{url_effective}\n' "https://www.britbox.com/" 2>&1);
@@ -1925,61 +1894,6 @@ function MediaUnlockTest_CineMax() {
 		return;
     fi
 
-}
-
-function MediaUnlockTest_NetflixCDN(){
-	echo -n -e " Netflix Preferred CDN:\t\t\t->\c"
-	local tmpresult=$(curl $useNIC -${1} ${ssll} -s --max-time 10 "https://api.fast.com/netflix/speedtest/v2?https=true&token=YXNkZmFzZGxmbnNkYWZoYXNkZmhrYWxm&urlCount=1")
-	if [ -z "$tmpresult" ];then
-		echo -n -e "\r Netflix Preferred CDN:\t\t\t${Font_Red}Failed${Font_Suffix}\n"
-		return
-	elif [ -n "$(echo $tmpresult | grep '>403<')" ];then
-		echo -n -e "\r Netflix Preferred CDN:\t\t\t${Font_Red}Failed (IP Banned By Netflix)${Font_Suffix}\n"
-		return
-	fi
-	
-	local CDNAddr=$(echo $tmpresult | sed 's/.*"url":"//' | cut -f3 -d"/")
-	if [[ "$1" == "6" ]];then
-		nslookup -q=AAAA $CDNAddr > ~/v6_addr.txt
-		ifAAAA=$(cat ~/v6_addr.txt | grep 'AAAA address' | awk '{print $NF}')
-		if [ -z "$ifAAAA" ];then
-			CDNIP=$(cat ~/v6_addr.txt | grep Address | sed -n '$p' | awk '{print $NF}')
-		else	
-			CDNIP=${ifAAAA}
-		fi	
-	else
-		CDNIP=$(nslookup $CDNAddr | sed '/^\s*$/d' | awk 'END {print}' | awk '{print $2}')
-	fi
-		
-	if [ -z "$CDNIP" ];then
-		echo -n -e "\r Netflix Preferred CDN:\t\t\t${Font_Red}Failed (CDN IP Not Found)${Font_Suffix}\n"
-		rm -rf ~/v6_addr.txt
-		return
-	fi	
-	
-	local CDN_ISP=$(curl $useNIC -s --max-time 20 https://api.ip.sb/geoip/$CDNIP | python -m json.tool 2> /dev/null | grep 'isp' | cut -f4 -d'"')
-	local iata=$(echo $CDNAddr | cut -f3 -d"-" | sed 's/.\{3\}$//' | tr [:lower:] [:upper:])
-	curl $useNIC -s --max-time 10 "https://www.iata.org/AirportCodesSearch/Search?currentBlock=314384&currentPage=12572&airport.search=${iata}" > ~/iata.txt
-	local line=$(cat ~/iata.txt | grep -n "<td>"$iata | awk '{print $1}' | cut -f1 -d":")
-	local nline=$(expr $line - 2)
-	local location=$(cat ~/iata.txt | awk NR==${nline} | sed 's/.*<td>//' | cut -f1 -d"<")
-	
-	if [ -n "$location" ] && [[ "$CDN_ISP" == "Netflix Streaming Services" ]];then
-		echo -n -e "\r Netflix Preferred CDN:\t\t\t${Font_Green}$location ${Font_Suffix}\n"
-		rm ~/iata.txt
-		rm -rf ~/v6_addr.txt
-		return
-	elif [ -n "$location" ] && [[ "$CDN_ISP" != "Netflix Streaming Services" ]];then
-		echo -n -e "\r Netflix Preferred CDN:\t\t\t${Font_Yellow}Associated with [$CDN_ISP] in [$location]${Font_Suffix}\n"
-		rm ~/iata.txt
-		rm -rf ~/v6_addr.txt
-		return
-	elif [ -n "$location" ] && [ -z "$CDN_ISP" ];then	
-		echo -n -e "\r Netflix Preferred CDN:\t\t\t${Font_Red}No ISP Info Founded${Font_Suffix}\n"
-		rm ~/iata.txt
-		rm -rf ~/v6_addr.txt
-		return
-	fi
 }	
 
 function MediaUnlockTest_HBO_Nordic() {
@@ -2802,8 +2716,6 @@ function Global_UnlockTest() {
 	MediaUnlockTest_Tiktok_Region ${1};
 	MediaUnlockTest_iQYI_Region ${1};
 	MediaUnlockTest_Viu.com ${1};
-	MediaUnlockTest_YouTube_CDN ${1};
-	MediaUnlockTest_NetflixCDN ${1};
 	GameTest_Steam ${1};
 	echo "======================================="	
 }
