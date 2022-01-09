@@ -1,5 +1,6 @@
 #!/bin/sh
 echo 正在安装wireguard. . .
+apt-get autoremove -y
 apt install dnsutils resolvconf -y
 apt-get install wireguard -y
 apt-get install -y wireguard-dkms wireguard-tools linux-headers-$(uname -r)
