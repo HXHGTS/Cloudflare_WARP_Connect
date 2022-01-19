@@ -53,3 +53,7 @@ warp重启/切换出口ip:
 ```
 systemctl restart wg-quick@wgcf && echo 1 | bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/check.sh) -M 4
 ```
+
+建议配合[看门狗](https://github.com/HXHGTS/WARP-WatchDog)食用!
+
+
