@@ -30,5 +30,6 @@ echo 安装成功，请修改xray/v2ray配置文件后手动运行！
 echo 出口ip:
 echo -------------------------
 curl ifconfig.me/ip --interface 172.16.0.2
+echo
 echo -------------------------
 exit 0
