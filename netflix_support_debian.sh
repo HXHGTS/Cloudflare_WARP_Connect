@@ -14,7 +14,7 @@ echo yes | ./wgcf_2.2.8_linux_amd64 register
 echo [Interface] > /etc/wireguard/wgcf.conf
 cat /etc/wireguard/wgcf-profile.conf | grep "PrivateKey" >> /etc/wireguard/wgcf.conf
 echo Address = 172.16.0.2/32 >> /etc/wireguard/wgcf.conf
-echo DNS = 1.1.1.1,1.0.0.1 >> /etc/wireguard/wgcf.conf
+echo DNS = 1.1.1.1, 1.0.0.1 >> /etc/wireguard/wgcf.conf
 echo MTU = 1280 >> /etc/wireguard/wgcf.conf
 echo Table = off >> /etc/wireguard/wgcf.conf
 echo PostUP = ip -4 rule add from 172.16.0.2 lookup 51820 >> /etc/wireguard/wgcf.conf
@@ -22,6 +22,7 @@ echo PostUP = ip -4 route add default dev wgcf table 51820 >> /etc/wireguard/wgc
 echo PostUP = ip -4 rule add table main suppress_prefixlength 0 >> /etc/wireguard/wgcf.conf
 echo PostDown = ip -4 rule delete from 172.16.0.2/32 lookup 51820 >> /etc/wireguard/wgcf.conf
 echo PostDown = ip -4 rule delete table main suppress_prefixlength 0 >> /etc/wireguard/wgcf.conf
+echo >> /etc/wireguard/wgcf.conf
 echo [Peer] >> /etc/wireguard/wgcf.conf
 echo AllowedIPs = 0.0.0.0/0 >> /etc/wireguard/wgcf.conf
 cat /etc/wireguard/wgcf-profile.conf | grep "PublicKey" >> /etc/wireguard/wgcf.conf
