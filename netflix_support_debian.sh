@@ -5,7 +5,7 @@ apt install dnsutils resolvconf -y
 echo nameserver 1.1.1.1 > /etc/resolv.conf
 echo nameserver 1.0.0.1 >> /etc/resolv.conf
 apt-get install wireguard -y
-apt-get install -y wireguard-dkms wireguard-tools
+apt-get install -y wireguard-tools
 wget https://github.com/ViRb3/wgcf/releases/download/v2.2.11/wgcf_2.2.11_linux_amd64 -O /etc/wireguard/wgcf_2.2.11_linux_amd64
 cd /etc/wireguard && chmod +x wgcf_2.2.11_linux_amd64
 echo 正在注册WARP账号. . .
