@@ -1,6 +1,8 @@
 #!/bin/sh
 echo 正在安装wireguard. . .
+cp -f /etc/resolv.conf /etc/resolv.conf.backup
 apt install dnsutils resolvconf -y
+cp -f /etc/resolv.conf.backup /etc/resolv.conf && rm -rf /etc/resolv.conf.backup
 apt-get install wireguard -y
 apt-get install -y wireguard-dkms wireguard-tools linux-headers-$(uname -r)
 wget https://github.com/ViRb3/wgcf/releases/download/v2.2.8/wgcf_2.2.8_linux_amd64 -O /etc/wireguard/wgcf_2.2.8_linux_amd64
