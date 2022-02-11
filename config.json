@@ -72,7 +72,8 @@
         "address": "1.1.1.1",
         "port": 53,
         "domains": ["geosite:netflix"]
-      }
+      },
+      "localhost"
 ]
 }
 }
