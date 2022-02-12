@@ -170,7 +170,7 @@ check_dependencies(){
 }		
 check_dependencies
 
-local_ipv4=$(curl $useNIC -4 -s --max-time 10 ip.sb)
+local_ipv4=$(curl $useNIC -4 -s --max-time 10 ifconfig.me)
 local_ipv4_asterisk=$(awk -F"." '{print $1"."$2".*.*"}'<<<"${local_ipv4}")
 local_ipv6=$(curl $useNIC -6 -s --max-time 20 ip.sb)
 local_ipv6_asterisk=$(awk -F":" '{print $1":"$2":"$3":*:*"}'<<<"${local_ipv6}")
