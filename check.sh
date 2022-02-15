@@ -15,7 +15,7 @@ do
     case "$optname" in
 		"I")
         iface="$OPTARG"
-		useNIC="--interface 172.16.0.2"
+		useNIC="--interface wgcf"
         ;;
 		"M")
         if [[ "$OPTARG" == "4" ]];then
@@ -36,7 +36,7 @@ do
 done
 
 if [ -z "$iface" ];then
-	useNIC="--interface 172.16.0.2"
+	useNIC="--interface wgcf"
 fi	
 
 if ! mktemp -u --suffix=RRC &>/dev/null; then
@@ -170,9 +170,9 @@ check_dependencies(){
 }		
 check_dependencies
 
-local_ipv4=$(curl $useNIC -4 -s --max-time 10 ifconfig.me)
+local_ipv4=$(curl $useNIC -4 -s --max-time 10 api64.ipify.org)
 local_ipv4_asterisk=$(awk -F"." '{print $1"."$2".*.*"}'<<<"${local_ipv4}")
-local_ipv6=$(curl $useNIC -6 -s --max-time 20 ip.sb)
+local_ipv6=$(curl $useNIC -6 -s --max-time 20 api64.ipify.org)
 local_ipv6_asterisk=$(awk -F":" '{print $1":"$2":"$3":*:*"}'<<<"${local_ipv6}")
 local_isp4=$(curl $useNIC -s -4 --max-time 10 https://api.ip.sb/geoip/${local_ipv4} | cut -f1 -d"," | cut -f4 -d '"')
 local_isp6=$(curl $useNIC -s -6 --max-time 10 https://api.ip.sb/geoip/${local_ipv6} | cut -f1 -d"," | cut -f4 -d '"')
