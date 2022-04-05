@@ -2910,7 +2910,6 @@ function CheckV4() {
 			echo -e " ${Font_SkyBlue}** Checking Results Under IPv4${Font_Suffix} "
 			echo "--------------------------------"
 			echo -e " ${Font_SkyBlue}** Your IPV4 Address: ${local_ipv4}${Font_Suffix} "
-			echo -e " ${Font_SkyBlue}** Your Network Provider: ${local_isp4}${Font_Suffix} "
 			check4=`ping 1.1.1.1 -c 1 2>&1`;
 			if [[ "$check4" != *"unreachable"* ]] && [[ "$check4" != *"Unreachable"* ]];then
 				isv4=1
@@ -2930,7 +2929,6 @@ function CheckV4() {
 			echo -e " ${Font_SkyBlue}** 正在测试IPv4解锁情况${Font_Suffix} "
 			echo "--------------------------------"
 			echo -e " ${Font_SkyBlue}** 您的IP为: ${local_ipv4}${Font_Suffix} "
-			echo -e " ${Font_SkyBlue}** 您的网络为: ${local_isp4}${Font_Suffix} "
 			check4=`ping 1.1.1.1 -c 1 2>&1`;
 			if [[ "$check4" != *"unreachable"* ]] && [[ "$check4" != *"Unreachable"* ]];then
 				isv4=1
@@ -2957,7 +2955,7 @@ function CheckV6() {
 				echo ""
 				echo -e " ${Font_SkyBlue}** Checking Results Under IPv6${Font_Suffix} "
 				echo "--------------------------------"
-				echo -e " ${Font_SkyBlue}** Your Network Provider: ${local_isp6} (${local_ipv6_asterisk})${Font_Suffix} "
+				echo -e " ${Font_SkyBlue}** Your IPV4 Address: ${local_ipv6}${Font_Suffix} "
 				isv6=1
 			else
 				echo -e "${Font_SkyBlue}No IPv6 Connectivity Found, Abort IPv6 Testing...${Font_Suffix}"
@@ -2979,7 +2977,7 @@ function CheckV6() {
 				echo ""
 				echo -e " ${Font_SkyBlue}** 正在测试IPv6解锁情况${Font_Suffix} "
 				echo "--------------------------------"
-				echo -e " ${Font_SkyBlue}** 您的网络为: ${local_isp6} (${local_ipv6_asterisk})${Font_Suffix} "
+				echo -e " ${Font_SkyBlue}** 您的IP为: ${local_ipv6}${Font_Suffix} "
 				isv6=1
 			else
 				echo -e "${Font_SkyBlue}当前主机不支持IPv6,跳过...${Font_Suffix}"
