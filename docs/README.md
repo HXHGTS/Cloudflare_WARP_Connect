@@ -21,7 +21,6 @@ bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Conne
 
 `Debian/Ubuntu(vps仅提供ipv4网络):`
 ```
-bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/TCPOptimization/master/KernelUpdate_debian10.sh)
 bash <(curl -L -s https://raw.githubusercontent.com/HXHGTS/Cloudflare_WARP_Connect/main/netflix_support_debian.sh)
 ```
 
