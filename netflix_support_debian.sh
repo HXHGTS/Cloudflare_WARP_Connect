@@ -1,8 +1,10 @@
 #!/bin/sh
 echo 正在安装wireguard. . .
-apt-get autoremove -y
+apt install lsb-release -y
+echo "deb http://deb.debian.org/debian $(lsb_release -sc)-backports main" | sudo tee /etc/apt/sources.list.d/backports.list
+apt update
 cp -f /etc/resolv.conf /etc/resolv.conf.backup
-apt install dnsutils resolvconf -y
+apt install iproute2 dnsutils resolvconf -y
 cp -f /etc/resolv.conf.backup /etc/resolv.conf && rm -rf /etc/resolv.conf.backup
 apt-get install -y wireguard
 apt-get install -y wireguard-tools --no-install-recommends
