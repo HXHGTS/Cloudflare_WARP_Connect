@@ -6,6 +6,7 @@ apt update
 cp -f /etc/resolv.conf /etc/resolv.conf.backup
 apt install iproute2 dnsutils resolvconf -y
 cp -f /etc/resolv.conf.backup /etc/resolv.conf && rm -rf /etc/resolv.conf.backup
+apt install -y linux-headers-$(uname -r)
 apt-get install -y wireguard
 apt-get install -y wireguard-tools --no-install-recommends
 wget https://github.com/ViRb3/wgcf/releases/download/v2.2.12/wgcf_2.2.12_linux_amd64 -O /etc/wireguard/wgcf_2.2.12_linux_amd64
