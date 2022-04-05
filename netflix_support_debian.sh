@@ -6,11 +6,11 @@ apt install dnsutils resolvconf -y
 cp -f /etc/resolv.conf.backup /etc/resolv.conf && rm -rf /etc/resolv.conf.backup
 apt-get install -y wireguard
 apt-get install -y wireguard-tools --no-install-recommends
-wget https://github.com/ViRb3/wgcf/releases/download/v2.2.11/wgcf_2.2.11_linux_amd64 -O /etc/wireguard/wgcf_2.2.11_linux_amd64
-cd /etc/wireguard && chmod +x wgcf_2.2.11_linux_amd64
+wget https://github.com/ViRb3/wgcf/releases/download/v2.2.12/wgcf_2.2.12_linux_amd64 -O /etc/wireguard/wgcf_2.2.12_linux_amd64
+cd /etc/wireguard && chmod +x wgcf_2.2.12_linux_amd64
 echo 正在注册WARP账号. . .
-echo yes | ./wgcf_2.2.11_linux_amd64 register
-./wgcf_2.2.11_linux_amd64 generate
+echo yes | ./wgcf_2.2.12_linux_amd64 register
+./wgcf_2.2.12_linux_amd64 generate
 echo [Interface] > /etc/wireguard/wgcf.conf
 cat /etc/wireguard/wgcf-profile.conf | grep "PrivateKey" >> /etc/wireguard/wgcf.conf
 echo Address = 172.16.0.2/32 >> /etc/wireguard/wgcf.conf
