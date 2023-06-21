@@ -1,4 +1,5 @@
 #!/bin/sh
+set WGCF_VERSION=2.2.18
 echo 正在安装wireguard. . .
 apt install lsb-release -y
 echo "deb http://deb.debian.org/debian $(lsb_release -sc)-backports main" | sudo tee /etc/apt/sources.list.d/backports.list
@@ -9,11 +10,11 @@ cp -f /etc/resolv.conf.backup /etc/resolv.conf && rm -rf /etc/resolv.conf.backup
 apt install -y linux-headers-$(uname -r)
 apt-get install -y wireguard
 apt-get install -y wireguard-tools --no-install-recommends
-wget https://github.com/ViRb3/wgcf/releases/download/v2.2.12/wgcf_2.2.12_linux_amd64 -O /etc/wireguard/wgcf_2.2.12_linux_amd64
-cd /etc/wireguard && chmod +x wgcf_2.2.12_linux_amd64
+wget https://github.com/ViRb3/wgcf/releases/download/v${WGCF_VERSION}/wgcf_${WGCF_VERSION}_linux_amd64 -O /etc/wireguard/wgcf_${WGCF_VERSION}_linux_amd64
+cd /etc/wireguard && chmod +x wgcf_${WGCF_VERSION}_linux_amd64
 echo 正在注册WARP账号. . .
-echo yes | ./wgcf_2.2.12_linux_amd64 register
-./wgcf_2.2.12_linux_amd64 generate
+echo yes | ./wgcf_${WGCF_VERSION}_linux_amd64 register
+./wgcf_${WGCF_VERSION}_linux_amd64 generate
 echo [Interface] > /etc/wireguard/wgcf.conf
 cat /etc/wireguard/wgcf-profile.conf | grep "PrivateKey" >> /etc/wireguard/wgcf.conf
 echo Address = 172.16.0.2/32 >> /etc/wireguard/wgcf.conf
